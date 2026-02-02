@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
-const contatosRoutes = require("./routes/contatos.js");
+const timesRoutes = require("./routes/times.js");
 
-app.use("/contatos", contatosRoutes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/times", timesRoutes);
 
 app.get("/", (req, res) => {
   res.send("Api rodando! Coloque as rotas corretamente");
